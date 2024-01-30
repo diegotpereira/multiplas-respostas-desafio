@@ -1,4 +1,7 @@
 import java.io.*;
+import java.util.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.*;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -8,17 +11,15 @@ public class App {
 
         String[] primeiraMultiplaEntrada = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
 
-        int p = Integer.parseInt(primeiraMultiplaEntrada[0]);
+        int n = Integer.parseInt(primeiraMultiplaEntrada[0]);
 
-        int d = Integer.parseInt(primeiraMultiplaEntrada[1]);
+        int  k = Integer.parseInt(primeiraMultiplaEntrada[1]);
 
-        int m = Integer.parseInt(primeiraMultiplaEntrada[2]);
+        List<Integer> arr = Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" ")).map(Integer::parseInt).collect(toList());
 
-        int s = Integer.parseInt(primeiraMultiplaEntrada[3]);
+        int resultado = Resultado.workbook(n, k, arr);
 
-        int resposta = Resultado.howManyGames(p, d, m, s);
-
-        bufferedWriter.write(String.valueOf(resposta));
+        bufferedWriter.write(String.valueOf(resultado));
         bufferedWriter.newLine();
 
         bufferedReader.close();
