@@ -36,6 +36,7 @@ public class App {
 
             System.out.println("Digite 1 - Para PF");
             System.out.println("Digite 2 - Para PJ");
+            System.out.println("Digite 3 - Para Buscar Cep");
 
             String acesso = bufferedReader.readLine().trim();
             
@@ -61,6 +62,24 @@ public class App {
                     String cnpj = pj.exibirCpj();
 
                     System.out.println("Seu CNPJ é: " + cnpj);
+                    break;
+
+                case "3":
+                
+
+                    System.out.println("Digite seu número de CEP para buscar informações: ");
+
+                    String cep = bufferedReader.readLine().trim();
+
+                    BuscarCep buscarCep = new BuscarCep();
+
+                    buscarCep.buscarCep(cep);
+
+                    System.out.println("As informações do Cep: ");
+                    System.out.println("Logradouro: " + buscarCep.logradouro);
+                    System.out.println("Bairro: " + buscarCep.bairro);
+                    System.out.println("Cidade: " + buscarCep.cidade);
+                    System.out.println("Estado: " + buscarCep.uf);
                     break;
             
                 default:
