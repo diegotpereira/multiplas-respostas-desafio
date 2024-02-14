@@ -10,9 +10,9 @@ public class App {
 
         int m = Integer.parseInt(bufferedReader.readLine().trim());
 
-        int resultado = Resultado.timeInWords(h, m);
+        String resultado = Resultado.timeInWords(h, m);
 
-        bufferedWriter.write(String.valueOf(resultado));
+        bufferedWriter.write(resultado);
         bufferedWriter.newLine();
 
         bufferedReader.close();
