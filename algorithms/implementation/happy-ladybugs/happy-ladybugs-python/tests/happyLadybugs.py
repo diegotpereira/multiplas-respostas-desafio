@@ -1,49 +1,36 @@
+# A tarefa do problema "Happy Ladybugs" é determinar se é possível 
+# reorganizar os insetos ladybugs em um tabuleiro de modo que todos 
+# os ladybugs estejam felizes. Um ladybug é considerado feliz se 
+# houver pelo menos um outro ladybug da mesma cor adjacente a ele 
+# no tabuleiro. Além disso, o tabuleiro pode conter células vazias 
+# representadas pelo caractere '_', que podem ser ocupadas por 
+# qualquer cor de ladybug.
 
+# O problema fornece uma string representando o estado atual do 
+# tabuleiro de ladybugs e espera-se que a função responda "YES" se 
+# for possível reorganizar os ladybugs de forma que todos estejam 
+# felizes e "NO" caso contrário.
 
 def happyLadybugs(b):
     
     # Itera sobre cada caractere na string 'b'
-    for i in b:
+    for i in set(b):
         
-        # Verifica se o caractere atual não é um sublinhado '_' 
-        # e se há apenas uma ocorrência desse caractere na string 'b'
-        if i != '_' and b.count(i) == 1:
+        # Se não houver nenhum espaço vazio '_' na string 'b'
+        if b.count('_') == 0:
             
-            # Retorna 'NO' se uma joaninha não pode ser feliz
-            return 'NO'
-        
-        # Verifica se não há espaços vazios na string 'b'
-        if '_' not in b:
-            
-            # Inicializa uma variável para verificar se há pelo menos uma joaninha feliz
-            c = False
-            
-            # Itera sobre os índices da string 'b' até o penúltimo caractere
-            for i in range(len(b) - 1):
+            # Verifica se o caractere atual não é o último na string e se ele é diferente do próximo caractere
+            # ou se há apenas uma ocorrência desse caractere na string 'b'
+            if b.index(i) != len(b) - 1 and i != b[b.index(i) + 1] or b.count(i) == 1:
                 
-                # Verifica se a joaninha atual é igual à próxima joaninha
-                if b[i] == b[i + 1]:
-                    
-                     # Define a variável 'c' como verdadeira se pelo menos uma joaninha estiver feliz
-                    c = True
-                    
-                else:
-                    
-                    # Verifica se uma joaninha feliz foi encontrada anteriormente
-                    if c == True:
-                        
-                        # Redefine a variável 'c' como falsa para garantir que as joaninhas sejam felizes em pares
-                        c = False 
-                        
-                    else:
-                        
-                        # Retorna 'NO' se não houver uma joaninha feliz em pares
-                        return 'NO'
-                    
-            # Retorna 'YES' se todas as joaninhas estiverem felizes
-            return 'YES'
-        
-        else:
+                # Retorna 'NO' se a configuração das joaninhas não for válida
+                return 'NO'
             
-            # Retorna 'YES' se houver espaços vazios na string 'b'
-            return 'YES'
+        # Se houver pelo menos um espaço vazio '_' na string 'b'
+        elif (b.count(i) == 1 and i != '_'):
+            
+            # Retorna 'NO' se houver uma única joaninha que não está feliz
+            return 'NO'
+     
+    # Retorna 'YES' se todas as joaninhas estiverem felizes           
+    return 'YES'
