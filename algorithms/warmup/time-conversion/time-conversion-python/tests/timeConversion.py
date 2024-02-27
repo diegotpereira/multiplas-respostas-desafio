@@ -15,41 +15,41 @@
 # AM ou PM: Indica se é antes ou depois do meio-dia.
 # A saída esperada é a hora no formato de 24 horas.
 
-# def timeConversion(s):
-
-#     # Separa a string em parte de tempo e período (AM ou PM)
-#     tempo = s[:-2]
-#     periodo =  s[-2:]
-
-#     print("o tempo é: " + tempo)
-#     print("O periodo é " + periodo)
-
-#     # Extrai hora, minuto e segundo da parte de tempo
-#     hora, minuto, segundo = map(int, tempo.split(":"))
-
-#     # Converte para o formato de 24 horas, considerando o período
-#     if periodo == "PM" and hora != 12:
-
-#         hora += 12
-
-#     elif periodo == "AM" and hora == 12:
-
-#         hora = 0
-
-#     # Formata a saída no formato desejado
-#     return "{:02d}:{:02d}:{:02d}".format(hora, minuto, segundo)
-
 def timeConversion(s):
 
-    s = list(s)
+    # Separa a string em parte de tempo e período (AM ou PM)
+    tempo = s[:-2]
+    periodo =  s[-2:]
 
-    letra = s[]
+    print("o tempo é: " + tempo)
+    print("O periodo é " + periodo)
+
+    # Extrai hora, minuto e segundo da parte de tempo
+    hora, minuto, segundo = map(int, tempo.split(":"))
+
+    # Converte para o formato de 24 horas, considerando o período
+    if periodo == "PM" and hora != 12:
+
+        hora += 12
+
+    elif periodo == "AM" and hora == 12:
+
+        hora = 0
+
+    # Formata a saída no formato desejado
+    return "{:02d}:{:02d}:{:02d}".format(hora, minuto, segundo)
+
+# def timeConversion(s):
+
+#     s = list(s)
+
+#     letra = s[]
 
     
 
-    print(s)
+#     print(s)
 
-    return
+#     return
 
 
 if __name__ == '__main__':
