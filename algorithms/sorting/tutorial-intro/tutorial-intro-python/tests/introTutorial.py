@@ -22,10 +22,15 @@
 #     return arr.index(V)
 
 
+# Define a função introTutorial que recebe dois parâmetros: V e arr.
+
 def introTutorial(V, arr):
     
+    # Itera sobre os índices dos elementos em arr usando a função range(len(arr)).
     for i in range(len(arr)):
         
+        # Verifica se o elemento atual de arr é igual a V.
         if arr[i] == V:
             
+            # Se for encontrado, retorna o índice onde o elemento V está na lista arr.
             return i
