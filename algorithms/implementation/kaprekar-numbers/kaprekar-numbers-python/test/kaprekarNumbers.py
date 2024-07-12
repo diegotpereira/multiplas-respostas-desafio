@@ -4,23 +4,30 @@ def kaprekarNumbers(p, q):
 
     resultado = []
 
-    for index in range(p + 1):
+    for index in range(p, q + 1):
 
-        elemento = str(index * index)
-        length = len(elemento)
+        if index == 1:
 
-        num1 = elemento[:length // 2] or '0'
-        num2 = elemento[length // 2] or '0'
+            resultado.append(1)
+            continue 
 
-        if int(num1) + int(num2) == index:
+        elemento = str(index ** 2)
+        length = len(elemento) - len(str(index))
 
-            resultado.append(index)
+        num1 = ''.join(elemento[:length])
+        num2 = ''.join(elemento[length:])
 
-    if not resultado:
+        if num1 and num2:
 
-        print('INVALID NAME')
+            if int(num1) + int(num2) == index:
+                
+                resultado.append(index)
+
+    if len(resultado) == 0:
+
+        return('INVALID RANGE')
 
     else:
 
-        print(' '.join(map(str, resultado)))
+        return ' '.join(map(str, resultado))
 

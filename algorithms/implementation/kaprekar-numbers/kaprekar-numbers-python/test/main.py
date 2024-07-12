@@ -1,8 +1,5 @@
 from kaprekarNumbers import kaprekarNumbers
 
-p = 1
-q = 100
-
 if __name__ == '__main__':
 
     p = int(input().strip())
