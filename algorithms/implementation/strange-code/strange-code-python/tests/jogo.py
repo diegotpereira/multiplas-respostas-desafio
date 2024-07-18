@@ -10,8 +10,6 @@ def jogo():
 
     palavra_secreta = carrega_palavra_secreta()
 
-    print(palavra_secreta)
-
     letras_acertadas = inicializa_letras_acertadas(palavra_secreta)
 
     enforcou = False
@@ -50,6 +48,8 @@ def jogo():
 
             enforcou = erros == 7
             acertou = "_" not in letras_acertadas
+
+            print(letras_acertadas)
 
 
     if(acertou):
